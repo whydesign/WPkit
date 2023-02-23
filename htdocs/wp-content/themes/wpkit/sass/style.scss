@@ -1,0 +1,55 @@
+/*!
+Theme Name: WPkit
+Theme URI: https://whydesign-halle.de/
+Author: whydesign
+Author URI: https://whydesign-halle.de/
+Description: A lightweight and modular Wordpress-Theme for developing fast and powerful, based on UIkit.
+Version: 1.0.0
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: wpkit
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, uikit-framework
+*/
+
+/*--------------------------------------------------------------
+-- TABLE OF SCSS STRUCTURE
+-- See https://getuikit.com/docs/sass#how-to-structure-your-theme
+----------------------------------------------------------------
+
+# font
+  # {font-name}
+  - fonts.scss
+# plugins
+  # {plugin-name}
+    - custom.scss
+# theme
+  - {component-name}.scss
+  - {component-name}-mixins.scss
+
+--------------------------------------------------------------*/
+
+// 1. Your custom font family import.
+// e.g.: @import "fonts/fonts.scss";
+
+
+// 2. Your custom variables and variable overwrites.
+// e.g.: @import "theme/accordion.scss";
+
+
+// 3. Import default variables and available mixins.
+@import "../node_modules/uikit/src/scss/variables-theme.scss";
+@import "../node_modules/uikit/src/scss/mixins-theme.scss";
+
+
+// 4. Your custom mixin overwrites.
+// e.g. @import "theme/accordion-mixins.scss";
+
+
+// 5. Import UIkit.
+@import "../node_modules/uikit/src/scss/uikit-theme.scss";
+
+
+// 6. Your custom wordpress plugin overwrites.
+// e.g. @import "plugins/woocommerce/checkout.scss";

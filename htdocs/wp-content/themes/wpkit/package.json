@@ -1,0 +1,11 @@
+{
+  "name": "WPkit",
+  "version": "1.0.0",
+  "description": "A lightweight and modular Wordpress-Theme for developing fast and powerful, based on UIkit.",
+  "author": "Ludwig Jäschke <info@whydesign-halle.de> (https://whydesign-halle.de)",
+  "homepage": "https://github.com/whydesign/wpkit",
+  "private": true,
+  "dependencies": {
+    "uikit": "^3.15.24"
+  }
+}
