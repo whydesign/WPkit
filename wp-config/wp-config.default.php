@@ -19,6 +19,12 @@ define('DB_CHARSET', 'utf8mb4');
 define('DB_COLLATE', '');
 
 /**
+ * Ersetze datenbankname_hier_einfuegen
+ * mit dem Namen der Datenbank, die du verwenden möchtest.
+ */
+define( 'DB_NAME', 'wpkit' );
+
+/**
  * WordPress Database Table prefix.
  *
  * You can have multiple installations in one database if you give each a unique
