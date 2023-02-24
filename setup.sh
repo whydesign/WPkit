@@ -210,8 +210,10 @@ help() {
     echo -e ""
 
     echo -e "${MAGENTABG} ${BOLD}Commands: ${NOSTYLE}${NOCOLOR}"
+    echo -e "${CYAN}   ${BOLD}${ITALIC}files${NOSTYLE}          ${GREEN}→ creates all the config files you will need${NOCOLOR}"
     echo -e "${CYAN}   ${BOLD}${ITALIC}install${NOSTYLE}        ${GREEN}→ run a npm install in theme directory htdocs/wp-content/themes/wpkit${NOCOLOR}"
     echo -e "${CYAN}   ${BOLD}${ITALIC}import${NOSTYLE}         ${GREEN}→ run SQL dump import with your e-mail and domain from setup-cnf.sh${NOCOLOR}"
+    echo -e ""
     echo -e "${CYAN}   ${BOLD}${ITALIC}wpcli-install${NOSTYLE}  ${GREEN}→ install wp-cli to htdocs${NOCOLOR}"
     echo -e "${CYAN}   ${BOLD}${ITALIC}wpcli-info${NOSTYLE}     ${GREEN}→ run a wp-cli info${NOCOLOR}"
     echo -e "${CYAN}   ${BOLD}${ITALIC}wpcli-update${NOSTYLE}   ${GREEN}→ run a wp-cli update${NOCOLOR}"
