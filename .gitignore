@@ -13,7 +13,6 @@
 # git has its own built in compression methods
 *.7z
 *.dmg
-*.gz
 *.iso
 *.jar
 *.rar
@@ -69,9 +68,13 @@ php.ini
 
 /htdocs/readme.html
 /htdocs/liesmich.html
+/htdocs/wp-cli.phar
 
-/setup-config.sh
+/.setup/*.sql
+/setup-cnf.sh
+setup-cnf.sh
 /env.cnf
+/.my.cnf
 /htdocs/wp-content/debug.log
 
 
