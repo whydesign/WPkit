@@ -1,0 +1,7 @@
+[client]
+host=localhost
+user=root
+password=root
+
+[mysql]
+database=wordpress

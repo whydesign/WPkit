@@ -1,0 +1,13 @@
+#!/bin/bash
+
+PHP='php'                       # your php path
+
+MYSQL='mysql'                   # your mysql path
+MYSQLDUMP='mysqldump'           # your mysqldump path
+
+MYSQL_DB='wordpress'            # other configs in .my.cnf
+MYSQL_HAS_VIEWS=0               # 0=false, 1=true
+# MYSQL_USER='root'             # only needed when MYSQL_HAS_VIEWS=1
+
+DOMAIN='https://domain.com'     # your domain
+MAIL='email@domain.com'         # your admin email
