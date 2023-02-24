@@ -23,6 +23,7 @@ files () {
 install () {
     echo_start;
     run_npm;
+    get_config;
     ask_import;
     echo_stop;
 }
@@ -72,7 +73,7 @@ echo_stop() {
 }
 
 run_npm() {
-    cd ./htdocs/wp-content/theme/uikit
+    cd ./htdocs/wp-content/themes/wpkit
     npm install
 }
 
