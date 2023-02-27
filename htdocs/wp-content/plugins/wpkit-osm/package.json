@@ -1,0 +1,21 @@
+{
+  "name": "wpkit-osm",
+  "version": "1.0.0",
+  "description": "WPkit OSM Plugin",
+  "main": "index.js",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start"
+  },
+  "keywords": [
+    "osm",
+    "gutenberg",
+    "wp-plugin",
+    "wpkit"
+  ],
+  "author": "whydesign",
+  "license": "ISC",
+  "devDependencies": {
+    "@wordpress/scripts": "^25.4.0"
+  }
+}

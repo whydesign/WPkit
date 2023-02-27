@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "wpkit/osm",
+  "title": "Open Street Map",
+  "description": "This block displays a OpenStreetMap",
+  "category": "widgets",
+  "icon": "location-alt",
+  "editorScript": "file:./build/index.js",
+  "editorStyle": "file:./assets/style.css",
+  "render": "file:./render.php",
+  "style": "leaflet-css",
+  "viewScript": "leaflet-js",
+  "example": {
+    "attributes": {
+      "lat": 51.3102,
+      "lng": 12.3732,
+      "content": "Lorem ipsum dolor sit."
+    }
+  }
+}

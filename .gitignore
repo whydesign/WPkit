@@ -66,6 +66,8 @@ php.ini
 /htdocs/wp-content/themes/wpkit/node_modules/*
 !/htdocs/wp-content/themes/wpkit/node_modules/uikit/*
 
+/htdocs/wp-content/plugins/wpkit-osm/node_modules/*
+
 /htdocs/readme.html
 /htdocs/liesmich.html
 /htdocs/wp-cli.phar
