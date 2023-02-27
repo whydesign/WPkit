@@ -20,16 +20,20 @@ A lightweight and modular Wordpress-Kit for developing fast and powerful, based 
 4. Edit setup configs in `setup-cnf.sh` and `.my.cnf`
 5. Run `./setup.sh install`
     - Optional: *Import starter SQL dump by answer with `y` or run `./setup.sh import`*
+6. Open `www.your.domain/wp-admin` and login with `superuser` and `e%tINpk7PKD1rCpz6a`
+    - ⚠ Be sure to change your admin password ⚠
     
 ### Additional Setup Options
 
-See all command with `./setup.sh help`
+See all commands with `./setup.sh help`
+
+**Use WP-CLI**
 
 1. Install WP-CLI by running `./setup.sh wpcli-install`
 2. Update WP-CLI by running `./setup.sh wpcli-update`
 2. Show WP-CLI infos by running `./setup.sh wpcli-info`
 
-You want more infos about WP-CLI?
+**You want more infos about WP-CLI?**
 
 - WP-CLI Website: [wp-cli.org](https://wp-cli.org/ "wp-cli.org")
 - WP-CLI GitHub Page: [github.com/wp-cli/wp-cli](https://github.com/wp-cli/wp-cli/ "github.com/wp-cli/wp-cli")
