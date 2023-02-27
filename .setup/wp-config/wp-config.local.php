@@ -12,20 +12,13 @@
  * @package    Studio 24 WordPress Multi-Environment Config
  */
 
-/**
- * Ersetze benutzername_hier_einfuegen
- * mit deinem Datenbank-Benutzernamen.
- */
+/** Database username */
 define( 'DB_USER', 'root' );
 
-/**
- * Ersetze passwort_hier_einfuegen mit deinem Datenbank-Passwort.
- */
+/** Database password */
 define( 'DB_PASSWORD', 'root' );
 
-/**
- * Ersetze localhost mit der Datenbank-Serveradresse.
- */
+/** Database hostname */
 define( 'DB_HOST', 'localhost' );
 
 /**#@+

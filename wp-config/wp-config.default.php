@@ -18,10 +18,7 @@ define('DB_CHARSET', 'utf8mb4');
 /** The Database Collate type. Don't change this if in doubt. */
 define('DB_COLLATE', '');
 
-/**
- * Ersetze datenbankname_hier_einfuegen
- * mit dem Namen der Datenbank, die du verwenden möchtest.
- */
+/** The name of the database for WordPress */
 define( 'DB_NAME', 'wpkit' );
 
 /**
