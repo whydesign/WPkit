@@ -11,3 +11,4 @@ MYSQL_HAS_VIEWS=0               # 0=false, 1=true
 
 DOMAIN='https://domain.com'     # your domain
 MAIL='email@domain.com'         # your admin email
+WPLANG='de_DE'                  # find your locale code: https://wpastra.com/docs/complete-list-wordpress-locale-codes/

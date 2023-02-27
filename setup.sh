@@ -109,6 +109,12 @@ run_import() {
             echo -e "${CYAN} √ ${NOCOLOR}"
         fi
 
+        if [ $WPLANG ]; then
+            echo -e "${CYAN}→ Replacing \"PLACEHOLDER_LANG\" with \"$WPLANG\" \c${NOCOLOR}"
+            sed -i "s|PLACEHOLDER_LANG|$WPLANG|" $DUMP_FILE
+            echo -e "${CYAN} √ ${NOCOLOR}"
+        fi
+
         #[ "$MYSQL_HAS_VIEWS" -eq 1 ] && info "Replacing \"PLACEHOLDER_MYSQLUSER\" with View Definer \"$MYSQL_USER\"" && perl -pi -w -e "s/PLACEHOLDER_MYSQLUSER/$MYSQL_USER/g;" $DUMP_FILE
     echo -e ""
 
