@@ -146,6 +146,8 @@ function wpkit_scripts() {
     wp_enqueue_script( 'uikit', get_template_directory_uri() . '/node_modules/uikit/dist/js/uikit.js', array(), _S_VERSION, true );
     wp_enqueue_script( 'uikit-icons', get_template_directory_uri() . '/node_modules/uikit/dist/js/uikit-icons.js', array(), _S_VERSION, true );
 
+    wp_enqueue_script('jquery');
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
