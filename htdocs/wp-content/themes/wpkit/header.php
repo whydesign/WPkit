@@ -8,7 +8,6 @@
  *
  * @package wpkit
  */
-
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -25,59 +24,57 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'wpkit' ); ?></a>
 
-	<header id="masthead" class="site-header">
+	<header id="masthead" class="site-header uk-background-muted uk-box-shadow-medium"<?= (get_theme_mod('sticky_nav') ? (is_user_logged_in() ? ' uk-sticky="start: 200; offset: 32"' : ' uk-sticky="start: 200"') : '') ?>>
+        <div class="uk-container uk-container-xlarge uk-padding-left uk-padding-right">
+            <nav class="uk-navbar-container uk-margin" uk-navbar>
+                <div class="uk-navbar-left">
+                    <div class="uk-navbar-item uk-logo">
+                        <?php if (get_theme_mod('custom_logo')) : ?>
+                            the_custom_logo();
+                        <?php else: ?>
+                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="uk-navbar-item uk-logo"><?php bloginfo( 'name' ); ?></a>
+                        <?php endif; ?>
+                    </div>
+                </div>
 
-		<!--<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'wpkit' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav>--><!-- #site-navigation -->
-
-        <nav class="uk-navbar-container uk-margin" uk-navbar>
-            <div class="uk-navbar-left">
-                <div class="uk-navbar-item uk-logo">
+                <div class="uk-navbar-right">
                     <?php
-                    the_custom_logo();
-                    if ( is_front_page() && is_home() ) :
-                        ?>
-                        <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-                        <?php
-                    else :
-                        ?>
-                        <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-                        <?php
-                    endif;
-                    $wpkit_description = get_bloginfo( 'description', 'display' );
-                    if ( $wpkit_description || is_customize_preview() ) :
-                        ?>
-                        <p class="site-description"><?php echo $wpkit_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+                    wp_nav_menu(
+                        array(
+                            'theme_location' => 'menu-1',
+                            'menu_id'        => 'primary-menu',
+                            'container'      => 'ul',
+                            'menu_class'     => 'uk-navbar-nav uk-visible@m',
+                        )
+                    );
+                    ?>
+
+                    <div id="primary-menu-mobile" class="uk-offcanvas" uk-offcanvas="flip: true; overlay: true">
+                        <div class="uk-offcanvas-bar">
+                            <button class="uk-offcanvas-close" type="button" uk-close></button>
+                            <?php
+                            wp_nav_menu(
+                                array(
+                                    'theme_location' => 'menu-1',
+                                    'menu_id'        => 'primary-menu',
+                                    'container'      => 'ul',
+                                    'menu_class'     => 'uk-nav uk-nav-default',
+                                )
+                            );
+                            ?>
+                        </div>
+                    </div>
+                    <a class="uk-navbar-toggle uk-hidden@m" href="#" uk-toggle="target: #primary-menu-mobile">
+                        <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">Menu</span>
+                    </a>
+                    <?php if (get_theme_mod('searchform_nav')) : ?>
+                        <?= get_search_form() ?>
                     <?php endif; ?>
                 </div>
-            </div>
-
-            <div class="uk-navbar-right">
-                <ul class="uk-navbar-nav">
-                    <li>
-                        <a href="#">
-                            <span class="uk-icon uk-margin-small-right" uk-icon="icon: info"></span> Features
-                        </a>
-                    </li>
-                </ul>
-
-                <?php
-                wp_nav_menu(
-                    array(
-                        'theme_location' => 'menu-1',
-                        'menu_id'        => 'primary-menu',
-                    )
-                );
-                ?>
-            </div>
-        </nav>
+            </nav>
+        </div>
 	</header><!-- #masthead -->
+
+    <?php if (get_theme_mod('slider_activation')) : ?>
+    <?= apply_filters( 'the_content', get_the_content(null, false, get_theme_mod('slider_select'))); ?>
+    <?php endif; ?>
