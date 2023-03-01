@@ -63,19 +63,19 @@ if ( ! function_exists( 'wpkit_entry_footer' ) ) :
 			$categories_list = get_the_category_list( esc_html__( ', ', 'wpkit' ) );
 			if ( $categories_list ) {
 				/* translators: 1: list of categories. */
-				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'wpkit' ) . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				printf( '<div class="cat-links">' . esc_html__( 'Posted in %1$s', 'wpkit' ) . '</div>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'wpkit' ) );
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'wpkit' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				printf( '<div class="tags-links">' . esc_html__( 'Tagged %1$s', 'wpkit' ) . '</div>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
 
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-			echo '<span class="comments-link">';
+			echo '<div class="comments-link">';
 			comments_popup_link(
 				sprintf(
 					wp_kses(
@@ -88,9 +88,12 @@ if ( ! function_exists( 'wpkit_entry_footer' ) ) :
 						)
 					),
 					wp_kses_post( get_the_title() )
-				)
+				),
+                __( '1 Comment', 'wpkit' ),
+                __( '% Comments', 'wpkit' ),
+                'uk-button uk-button-text'
 			);
-			echo '</span>';
+			echo '</div>';
 		}
 
 		edit_post_link(
@@ -127,12 +130,12 @@ if ( ! function_exists( 'wpkit_post_thumbnail' ) ) :
 		if ( is_singular() ) :
 			?>
 
-			<div class="post-thumbnail">
-				<?php the_post_thumbnail(); ?>
+			<div class="post-thumbnail uk-cover-container uk-height-medium uk-margin-medium-bottom">
+				<?php the_post_thumbnail( '', array( 'uk-cover' => '' )); ?>
 			</div><!-- .post-thumbnail -->
 
 		<?php else : ?>
-
+            <div class="post-thumbnail uk-cover-container uk-height-medium uk-margin-medium-bottom">
 			<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
 				<?php
 					the_post_thumbnail(
@@ -143,10 +146,12 @@ if ( ! function_exists( 'wpkit_post_thumbnail' ) ) :
 									'echo' => false,
 								)
 							),
+                            'uk-cover' => ''
 						)
 					);
 				?>
 			</a>
+            </div>
 
 			<?php
 		endif; // End is_singular().
