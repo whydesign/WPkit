@@ -35,7 +35,9 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 
 
 // 2. Your custom variables and variable overwrites.
-// e.g.: @import "theme/accordion.scss";
+// e.g.: @import "uikit/accordion.scss";
+@import "uikit/grid";
+@import "uikit/offcanvas";
 
 
 // 3. Import default variables and available mixins.
@@ -50,6 +52,9 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 // 5. Import UIkit.
 @import "../node_modules/uikit/src/scss/uikit-theme.scss";
 
+// 6. Your custom wordpress theme overwrites.
+// e.g. @import "theme/post.scss";
+@import "theme/post";
 
-// 6. Your custom wordpress plugin overwrites.
+// 7. Your custom wordpress plugin overwrites.
 // e.g. @import "plugins/woocommerce/checkout.scss";

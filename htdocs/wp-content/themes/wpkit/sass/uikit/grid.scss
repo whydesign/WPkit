@@ -1,0 +1,5 @@
+.uk-child-width-expand {
+  &>* {
+    flex-grow: 1;
+  }
+}
