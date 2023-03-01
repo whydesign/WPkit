@@ -10,22 +10,26 @@
  */
 
 ?>
-
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'wpkit' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'wpkit' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'wpkit' ), 'wpkit', '<a href="https://whydesign-halle.de/">whydesign</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+    <div class="uk-section-secondary uk-section uk-margin-large-top">
+        <footer id="colophon" class="site-footer uk-container uk-container-xlarge uk-padding-left uk-padding-right uk-margin-top uk-margin-bottom">
+            <div class="site-info uk-child-width-expand" uk-grid>
+                <?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
+                    <?php dynamic_sidebar('footer-1'); ?>
+                <?php endif; ?>
+                <?php if ( is_active_sidebar( 'footer-2' ) ) : ?>
+                    <?php dynamic_sidebar('footer-2'); ?>
+                <?php endif; ?>
+                <?php if ( is_active_sidebar( 'footer-3' ) ) : ?>
+                    <?php dynamic_sidebar('footer-3'); ?>
+                <?php endif; ?>
+                <div class="uk-width-auto@s uk-width-1-4@m">
+                    <div class="uk-margin uk-text-right@s">
+                        <a href="#" uk-totop uk-scroll></a>
+                    </div>
+                </div>
+            </div><!-- .site-info -->
+        </footer><!-- #colophon -->
+    </div>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
