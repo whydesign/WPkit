@@ -15,7 +15,12 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+	<main id="primary" class="site-main uk-container uk-container-xlarge">
+        <?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
+            <div class="uk-grid-divider" uk-grid>
+        <?php else : ?>
+            <div uk-grid="masonry: true; margin: uk-grid-margin-large">
+        <?php endif; ?>
 
 		<?php
 		if ( have_posts() ) :
@@ -48,10 +53,16 @@ get_header();
 			get_template_part( 'template-parts/content', 'none' );
 
 		endif;
-		?>
+        ?>
+
+        <?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
+            <div class="uk-width-1-3@m uk-width-1-4@l"><?php get_sidebar('sidebar-1'); ?></div>
+            </div>
+        <?php else : ?>
+            </div>
+        <?php endif; ?>
 
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();
