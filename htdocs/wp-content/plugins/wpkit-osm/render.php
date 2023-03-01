@@ -20,7 +20,15 @@
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        L.marker([<?= $attributes['lat'] ?>, <?= $attributes['lng'] ?>]).addTo(map)
+        var markerIcon = L.divIcon({
+            //className: 'dashicons',
+            html: '<span class="dashicons dashicons-location"></span>',
+            iconSize: [50, 50],
+            //iconAnchor: [22, 94],
+            popupAnchor: [0, -20],
+        });
+
+        L.marker([<?= $attributes['lat'] ?>, <?= $attributes['lng'] ?>], {icon: markerIcon}).addTo(map)
             .bindPopup("<?= $attributes['content'] ?>")
             .openPopup();
     });
