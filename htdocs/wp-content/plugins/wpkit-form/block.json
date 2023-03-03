@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "wpkit/form",
+  "title": "Contact Form",
+  "description": "This block displays a Contact Form",
+  "category": "widgets",
+  "icon": "email",
+  "editorScript": "file:./build/index.js",
+  "editorStyle": "file:./assets/style.css",
+  "render": "file:./render.php",
+  "example": {
+    "attributes": {
+      "backgroundColor": "#000000",
+      "opacity": 0.8,
+      "padding": 30,
+      "textColor": "#FFFFFF",
+      "radius": 10,
+      "title": "Contact Form"
+    }
+  }
+}
