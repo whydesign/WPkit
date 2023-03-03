@@ -14,13 +14,19 @@
         <footer id="colophon" class="site-footer uk-container uk-container-xlarge uk-padding-left uk-padding-right uk-margin-top uk-margin-bottom">
             <div class="site-info uk-child-width-expand" uk-grid>
                 <?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
+                    <div class="uk-width-1-4@m">
                     <?php dynamic_sidebar('footer-1'); ?>
+                    </div>
                 <?php endif; ?>
                 <?php if ( is_active_sidebar( 'footer-2' ) ) : ?>
+                    <div class="uk-width-auto@s uk-width-1-4@m">
                     <?php dynamic_sidebar('footer-2'); ?>
+                    </div>
                 <?php endif; ?>
                 <?php if ( is_active_sidebar( 'footer-3' ) ) : ?>
+                    <div class="uk-width-auto@s uk-width-1-4@m">
                     <?php dynamic_sidebar('footer-3'); ?>
+                    </div>
                 <?php endif; ?>
                 <div class="uk-width-auto@s uk-width-1-4@m">
                     <div class="uk-margin uk-text-right@s">
