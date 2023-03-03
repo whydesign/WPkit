@@ -207,3 +207,8 @@ msgstr ""
 #: template-parts/content.php:40
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
+
+#. register_block_pattern contact form
+#: function.php:436
+msgid "Contact Form"
+msgstr ""

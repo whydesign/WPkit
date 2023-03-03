@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: _s v1.0-wpcom\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-08 11:35+0100\n"
-"PO-Revision-Date: 2023-03-01 12:54+0100\n"
+"PO-Revision-Date: 2023-03-03 13:09+0100\n"
 "Last-Translator: glueckpress <caspar@glueckpress.com>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -335,6 +335,11 @@ msgstr "Archive"
 #, php-format
 msgid "Search Results for: %s"
 msgstr "Suchergebnisse für: %s"
+
+# @ _s
+#: function.php:436
+msgid "Contact Form"
+msgstr "Kontakt Formular"
 
 # @ _s
 #~ msgid "Asides"
