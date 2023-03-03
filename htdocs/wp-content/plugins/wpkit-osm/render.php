@@ -5,9 +5,6 @@
  * Date: 27.02.23
  * Time: 16:34
  */
-
-//var_dump($attributes);
-
 ?>
 
 <div id="map" style="height: 400px;"></div>
