@@ -46,7 +46,7 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 
 
 // 4. Your custom mixin overwrites.
-// e.g. @import "theme/accordion-mixins.scss";
+// e.g. @import "uikit/accordion-mixins.scss";
 
 
 // 5. Import UIkit.
@@ -55,6 +55,7 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 // 6. Your custom wordpress theme overwrites.
 // e.g. @import "theme/post.scss";
 @import "theme/post";
+@import "theme/footer";
 
 // 7. Your custom wordpress plugin overwrites.
 // e.g. @import "plugins/woocommerce/checkout.scss";

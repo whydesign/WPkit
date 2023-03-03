@@ -1,0 +1,50 @@
+.site-footer {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    @extend .uk-heading-bullet;
+  }
+  h1 {
+    font-size: calc($global-2xlarge-font-size / 2.4);
+  }
+  h2 {
+    font-size: calc($global-xlarge-font-size / 2.4);
+  }
+  h3 {
+    font-size: calc($global-large-font-size / 2.4);
+  }
+  h4 {
+    font-size: calc($global-medium-font-size / 2.4);
+  }
+  h5 {
+    font-size: calc($global-font-size / 2.4);
+  }
+  h6 {
+    font-size: calc($global-small-font-size / 2.4);
+  }
+
+  .wp-block-page-list {
+    list-style: none;
+    padding: 0;
+
+    a {
+      color: $text-muted-color;
+      @extend .uk-text-light;
+    }
+  }
+
+  .widget_text {
+    color: $text-muted-color;
+    @extend .uk-text-light;
+
+    p {
+      margin-bottom: 5px;
+    }
+  }
+}

@@ -653,7 +653,12 @@ a.uk-link-reset,
 
 /* Bullet
  ========================================================================== */
-.uk-heading-bullet {
+.uk-heading-bullet, .site-footer h1,
+.site-footer h2,
+.site-footer h3,
+.site-footer h4,
+.site-footer h5,
+.site-footer h6 {
   position: relative;
 }
 
@@ -662,7 +667,12 @@ a.uk-link-reset,
  * 2. Center vertically
  * 3. Style
  */
-.uk-heading-bullet::before {
+.uk-heading-bullet::before, .site-footer h1::before,
+.site-footer h2::before,
+.site-footer h3::before,
+.site-footer h4::before,
+.site-footer h5::before,
+.site-footer h6::before {
   content: "";
   /* 1 */
   display: inline-block;
@@ -8804,7 +8814,7 @@ ul.uk-nav-sub {
 
 /* Weight modifier
  ========================================================================== */
-.uk-text-light {
+.uk-text-light, .site-footer .widget_text, .site-footer .wp-block-page-list a {
   font-weight: 300;
 }
 
@@ -11717,7 +11727,107 @@ iframe[data-uk-cover] {
 .uk-light .uk-heading-divider, .uk-section-primary:not(.uk-preserve-color) .uk-heading-divider, .uk-section-secondary:not(.uk-preserve-color) .uk-heading-divider, .uk-tile-primary:not(.uk-preserve-color) .uk-heading-divider, .uk-tile-secondary:not(.uk-preserve-color) .uk-heading-divider, .uk-card-primary.uk-card-body .uk-heading-divider, .uk-card-primary > :not([class*=uk-card-media]) .uk-heading-divider, .uk-card-secondary.uk-card-body .uk-heading-divider, .uk-card-secondary > :not([class*=uk-card-media]) .uk-heading-divider, .uk-overlay-primary .uk-heading-divider {
   border-bottom-color: rgba(255, 255, 255, 0.2);
 }
-.uk-light .uk-heading-bullet::before, .uk-section-primary:not(.uk-preserve-color) .uk-heading-bullet::before, .uk-section-secondary:not(.uk-preserve-color) .uk-heading-bullet::before, .uk-tile-primary:not(.uk-preserve-color) .uk-heading-bullet::before, .uk-tile-secondary:not(.uk-preserve-color) .uk-heading-bullet::before, .uk-card-primary.uk-card-body .uk-heading-bullet::before, .uk-card-primary > :not([class*=uk-card-media]) .uk-heading-bullet::before, .uk-card-secondary.uk-card-body .uk-heading-bullet::before, .uk-card-secondary > :not([class*=uk-card-media]) .uk-heading-bullet::before, .uk-overlay-primary .uk-heading-bullet::before {
+.uk-light .uk-heading-bullet::before, .uk-light .site-footer h1::before, .site-footer .uk-light h1::before,
+.uk-light .site-footer h2::before,
+.site-footer .uk-light h2::before,
+.uk-light .site-footer h3::before,
+.site-footer .uk-light h3::before,
+.uk-light .site-footer h4::before,
+.site-footer .uk-light h4::before,
+.uk-light .site-footer h5::before,
+.site-footer .uk-light h5::before,
+.uk-light .site-footer h6::before,
+.site-footer .uk-light h6::before, .uk-section-primary:not(.uk-preserve-color) .uk-heading-bullet::before, .uk-section-primary:not(.uk-preserve-color) .site-footer h1::before, .site-footer .uk-section-primary:not(.uk-preserve-color) h1::before,
+.uk-section-primary:not(.uk-preserve-color) .site-footer h2::before,
+.site-footer .uk-section-primary:not(.uk-preserve-color) h2::before,
+.uk-section-primary:not(.uk-preserve-color) .site-footer h3::before,
+.site-footer .uk-section-primary:not(.uk-preserve-color) h3::before,
+.uk-section-primary:not(.uk-preserve-color) .site-footer h4::before,
+.site-footer .uk-section-primary:not(.uk-preserve-color) h4::before,
+.uk-section-primary:not(.uk-preserve-color) .site-footer h5::before,
+.site-footer .uk-section-primary:not(.uk-preserve-color) h5::before,
+.uk-section-primary:not(.uk-preserve-color) .site-footer h6::before,
+.site-footer .uk-section-primary:not(.uk-preserve-color) h6::before, .uk-section-secondary:not(.uk-preserve-color) .uk-heading-bullet::before, .uk-section-secondary:not(.uk-preserve-color) .site-footer h1::before, .site-footer .uk-section-secondary:not(.uk-preserve-color) h1::before,
+.uk-section-secondary:not(.uk-preserve-color) .site-footer h2::before,
+.site-footer .uk-section-secondary:not(.uk-preserve-color) h2::before,
+.uk-section-secondary:not(.uk-preserve-color) .site-footer h3::before,
+.site-footer .uk-section-secondary:not(.uk-preserve-color) h3::before,
+.uk-section-secondary:not(.uk-preserve-color) .site-footer h4::before,
+.site-footer .uk-section-secondary:not(.uk-preserve-color) h4::before,
+.uk-section-secondary:not(.uk-preserve-color) .site-footer h5::before,
+.site-footer .uk-section-secondary:not(.uk-preserve-color) h5::before,
+.uk-section-secondary:not(.uk-preserve-color) .site-footer h6::before,
+.site-footer .uk-section-secondary:not(.uk-preserve-color) h6::before, .uk-tile-primary:not(.uk-preserve-color) .uk-heading-bullet::before, .uk-tile-primary:not(.uk-preserve-color) .site-footer h1::before, .site-footer .uk-tile-primary:not(.uk-preserve-color) h1::before,
+.uk-tile-primary:not(.uk-preserve-color) .site-footer h2::before,
+.site-footer .uk-tile-primary:not(.uk-preserve-color) h2::before,
+.uk-tile-primary:not(.uk-preserve-color) .site-footer h3::before,
+.site-footer .uk-tile-primary:not(.uk-preserve-color) h3::before,
+.uk-tile-primary:not(.uk-preserve-color) .site-footer h4::before,
+.site-footer .uk-tile-primary:not(.uk-preserve-color) h4::before,
+.uk-tile-primary:not(.uk-preserve-color) .site-footer h5::before,
+.site-footer .uk-tile-primary:not(.uk-preserve-color) h5::before,
+.uk-tile-primary:not(.uk-preserve-color) .site-footer h6::before,
+.site-footer .uk-tile-primary:not(.uk-preserve-color) h6::before, .uk-tile-secondary:not(.uk-preserve-color) .uk-heading-bullet::before, .uk-tile-secondary:not(.uk-preserve-color) .site-footer h1::before, .site-footer .uk-tile-secondary:not(.uk-preserve-color) h1::before,
+.uk-tile-secondary:not(.uk-preserve-color) .site-footer h2::before,
+.site-footer .uk-tile-secondary:not(.uk-preserve-color) h2::before,
+.uk-tile-secondary:not(.uk-preserve-color) .site-footer h3::before,
+.site-footer .uk-tile-secondary:not(.uk-preserve-color) h3::before,
+.uk-tile-secondary:not(.uk-preserve-color) .site-footer h4::before,
+.site-footer .uk-tile-secondary:not(.uk-preserve-color) h4::before,
+.uk-tile-secondary:not(.uk-preserve-color) .site-footer h5::before,
+.site-footer .uk-tile-secondary:not(.uk-preserve-color) h5::before,
+.uk-tile-secondary:not(.uk-preserve-color) .site-footer h6::before,
+.site-footer .uk-tile-secondary:not(.uk-preserve-color) h6::before, .uk-card-primary.uk-card-body .uk-heading-bullet::before, .uk-card-primary.uk-card-body .site-footer h1::before, .site-footer .uk-card-primary.uk-card-body h1::before,
+.uk-card-primary.uk-card-body .site-footer h2::before,
+.site-footer .uk-card-primary.uk-card-body h2::before,
+.uk-card-primary.uk-card-body .site-footer h3::before,
+.site-footer .uk-card-primary.uk-card-body h3::before,
+.uk-card-primary.uk-card-body .site-footer h4::before,
+.site-footer .uk-card-primary.uk-card-body h4::before,
+.uk-card-primary.uk-card-body .site-footer h5::before,
+.site-footer .uk-card-primary.uk-card-body h5::before,
+.uk-card-primary.uk-card-body .site-footer h6::before,
+.site-footer .uk-card-primary.uk-card-body h6::before, .uk-card-primary > :not([class*=uk-card-media]) .uk-heading-bullet::before, .uk-card-primary > :not([class*=uk-card-media]) .site-footer h1::before, .site-footer .uk-card-primary > :not([class*=uk-card-media]) h1::before,
+.uk-card-primary > :not([class*=uk-card-media]) .site-footer h2::before,
+.site-footer .uk-card-primary > :not([class*=uk-card-media]) h2::before,
+.uk-card-primary > :not([class*=uk-card-media]) .site-footer h3::before,
+.site-footer .uk-card-primary > :not([class*=uk-card-media]) h3::before,
+.uk-card-primary > :not([class*=uk-card-media]) .site-footer h4::before,
+.site-footer .uk-card-primary > :not([class*=uk-card-media]) h4::before,
+.uk-card-primary > :not([class*=uk-card-media]) .site-footer h5::before,
+.site-footer .uk-card-primary > :not([class*=uk-card-media]) h5::before,
+.uk-card-primary > :not([class*=uk-card-media]) .site-footer h6::before,
+.site-footer .uk-card-primary > :not([class*=uk-card-media]) h6::before, .uk-card-secondary.uk-card-body .uk-heading-bullet::before, .uk-card-secondary.uk-card-body .site-footer h1::before, .site-footer .uk-card-secondary.uk-card-body h1::before,
+.uk-card-secondary.uk-card-body .site-footer h2::before,
+.site-footer .uk-card-secondary.uk-card-body h2::before,
+.uk-card-secondary.uk-card-body .site-footer h3::before,
+.site-footer .uk-card-secondary.uk-card-body h3::before,
+.uk-card-secondary.uk-card-body .site-footer h4::before,
+.site-footer .uk-card-secondary.uk-card-body h4::before,
+.uk-card-secondary.uk-card-body .site-footer h5::before,
+.site-footer .uk-card-secondary.uk-card-body h5::before,
+.uk-card-secondary.uk-card-body .site-footer h6::before,
+.site-footer .uk-card-secondary.uk-card-body h6::before, .uk-card-secondary > :not([class*=uk-card-media]) .uk-heading-bullet::before, .uk-card-secondary > :not([class*=uk-card-media]) .site-footer h1::before, .site-footer .uk-card-secondary > :not([class*=uk-card-media]) h1::before,
+.uk-card-secondary > :not([class*=uk-card-media]) .site-footer h2::before,
+.site-footer .uk-card-secondary > :not([class*=uk-card-media]) h2::before,
+.uk-card-secondary > :not([class*=uk-card-media]) .site-footer h3::before,
+.site-footer .uk-card-secondary > :not([class*=uk-card-media]) h3::before,
+.uk-card-secondary > :not([class*=uk-card-media]) .site-footer h4::before,
+.site-footer .uk-card-secondary > :not([class*=uk-card-media]) h4::before,
+.uk-card-secondary > :not([class*=uk-card-media]) .site-footer h5::before,
+.site-footer .uk-card-secondary > :not([class*=uk-card-media]) h5::before,
+.uk-card-secondary > :not([class*=uk-card-media]) .site-footer h6::before,
+.site-footer .uk-card-secondary > :not([class*=uk-card-media]) h6::before, .uk-overlay-primary .uk-heading-bullet::before, .uk-overlay-primary .site-footer h1::before, .site-footer .uk-overlay-primary h1::before,
+.uk-overlay-primary .site-footer h2::before,
+.site-footer .uk-overlay-primary h2::before,
+.uk-overlay-primary .site-footer h3::before,
+.site-footer .uk-overlay-primary h3::before,
+.uk-overlay-primary .site-footer h4::before,
+.site-footer .uk-overlay-primary h4::before,
+.uk-overlay-primary .site-footer h5::before,
+.site-footer .uk-overlay-primary h5::before,
+.uk-overlay-primary .site-footer h6::before,
+.site-footer .uk-overlay-primary h6::before {
   border-left-color: rgba(255, 255, 255, 0.2);
 }
 .uk-light .uk-heading-line > ::before, .uk-section-primary:not(.uk-preserve-color) .uk-heading-line > ::before, .uk-section-secondary:not(.uk-preserve-color) .uk-heading-line > ::before, .uk-tile-primary:not(.uk-preserve-color) .uk-heading-line > ::before, .uk-tile-secondary:not(.uk-preserve-color) .uk-heading-line > ::before, .uk-card-primary.uk-card-body .uk-heading-line > ::before, .uk-card-primary > :not([class*=uk-card-media]) .uk-heading-line > ::before, .uk-card-secondary.uk-card-body .uk-heading-line > ::before, .uk-card-secondary > :not([class*=uk-card-media]) .uk-heading-line > ::before, .uk-overlay-primary .uk-heading-line > ::before,
@@ -12499,4 +12609,46 @@ article footer.entry-footer div, article footer.entry-footer a.uk-button-text {
   font-size: 14px;
   vertical-align: unset;
   text-transform: uppercase;
+}
+
+.site-footer h1,
+.site-footer h2,
+.site-footer h3,
+.site-footer h4,
+.site-footer h5,
+.site-footer h6 {
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+}
+.site-footer h1 {
+  font-size: 1.09375rem;
+}
+.site-footer h2 {
+  font-size: 0.8333333333rem;
+}
+.site-footer h3 {
+  font-size: 0.625rem;
+}
+.site-footer h4 {
+  font-size: 0.5208333333rem;
+}
+.site-footer h5 {
+  font-size: 6.6666666667px;
+}
+.site-footer h6 {
+  font-size: 0.3645833333rem;
+}
+.site-footer .wp-block-page-list {
+  list-style: none;
+  padding: 0;
+}
+.site-footer .wp-block-page-list a {
+  color: #999;
+}
+.site-footer .widget_text {
+  color: #999;
+}
+.site-footer .widget_text p {
+  margin-bottom: 5px;
 }
