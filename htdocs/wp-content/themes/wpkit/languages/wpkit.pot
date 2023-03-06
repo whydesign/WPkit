@@ -212,3 +212,83 @@ msgstr ""
 #: function.php:436
 msgid "Contact Form"
 msgstr ""
+
+#: function.php
+msgid "Select on which pages the header slider should be displayed."
+msgstr ""
+
+#: function.php
+msgid "Everywhere"
+msgstr ""
+
+#: function.php
+msgid "Front Page"
+msgstr ""
+
+#: function.php
+msgid "Main Blog Page"
+msgstr ""
+
+#: function.php
+msgid "Single Pages"
+msgstr ""
+
+#: function.php
+msgid "Single Posts"
+msgstr ""
+
+#: function.php
+msgid "Archive Pages"
+msgstr ""
+
+#: function.php
+msgid "Post Type: "
+msgstr ""
+
+#: function.php
+msgid " Taxonomy: "
+msgstr ""
+
+#: function.php
+msgid "Slider Pages"
+msgstr ""
+
+#: function.php
+msgid "Activate Header-Slider"
+msgstr ""
+
+#: function.php
+msgid "Choose your Header-Slider"
+msgstr ""
+
+#: function.php
+msgid "Autoplay Header-Slider"
+msgstr ""
+
+#: function.php
+msgid "Activate Dot-Navigation"
+msgstr ""
+
+#: function.php
+msgid "Activate Arrow-Navigation"
+msgstr ""
+
+#: function.php
+msgid "WPkit Options"
+msgstr ""
+
+#: function.php
+msgid "Show Searchform in Navi"
+msgstr ""
+
+#: function.php
+msgid "Enable Sticky Nav"
+msgstr ""
+
+#: function.php
+msgid "Text Leader"
+msgstr ""
+
+#: wpkit-osm/osm-block.php
+msgid "OSM Options"
+msgstr ""

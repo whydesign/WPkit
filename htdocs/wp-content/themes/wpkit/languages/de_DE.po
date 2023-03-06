@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: _s v1.0-wpcom\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-08 11:35+0100\n"
-"PO-Revision-Date: 2023-03-03 13:09+0100\n"
+"PO-Revision-Date: 2023-03-06 12:24+0100\n"
 "Last-Translator: glueckpress <caspar@glueckpress.com>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -340,6 +340,87 @@ msgstr "Suchergebnisse für: %s"
 #: function.php:436
 msgid "Contact Form"
 msgstr "Kontakt Formular"
+
+# @ _s
+#: function.php
+msgid "Select on which pages the header slider should be displayed."
+msgstr "Wähle, auf welchen Seiten der Header Slider angezeigt werden soll."
+
+#: function.php
+msgid "Everywhere"
+msgstr "Überall"
+
+#: function.php
+msgid "Front Page"
+msgstr "Startseite"
+
+#: function.php
+msgid "Main Blog Page"
+msgstr "Haupt Blog-Seite"
+
+#: function.php
+msgid "Single Pages"
+msgstr "Einzelne Seiten"
+
+#: function.php
+msgid "Single Posts"
+msgstr "Einzelne Beiträge"
+
+#: function.php
+msgid "Archive Pages"
+msgstr "Archiv Seiten"
+
+#: function.php
+msgid "Post Type: "
+msgstr "Beitragstyp:"
+
+#: function.php
+msgid " Taxonomy: "
+msgstr " Kategorie: "
+
+#: function.php
+msgid "Slider Pages"
+msgstr "Slider Seite"
+
+#: function.php
+msgid "Activate Header-Slider"
+msgstr "Header-Slider aktivieren"
+
+#: function.php
+msgid "Choose your Header-Slider"
+msgstr "Wähle einen Header-Slider"
+
+#: function.php
+msgid "Autoplay Header-Slider"
+msgstr "Automatisches abspielen/sliden"
+
+#: function.php
+msgid "Activate Dot-Navigation"
+msgstr "Punkte-Navigation aktivieren"
+
+#: function.php
+msgid "Activate Arrow-Navigation"
+msgstr "Pfeil-Navigation aktivieren"
+
+#: function.php
+msgid "WPkit Options"
+msgstr "WPkit Theme Optionen"
+
+#: function.php
+msgid "Show Searchform in Navi"
+msgstr "Zeige Suchfunktion im Menü"
+
+#: function.php
+msgid "Enable Sticky Nav"
+msgstr "Sticky Navigationsleiste"
+
+#: function.php
+msgid "Text Leader"
+msgstr "Textvorspann/Einleitung"
+
+#: wpkit-osm/osm-block.php
+msgid "OSM Options"
+msgstr "OSM Optionen"
 
 # @ _s
 #~ msgid "Asides"
