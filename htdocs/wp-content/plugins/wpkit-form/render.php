@@ -5,6 +5,12 @@
  * Date: 27.02.23
  * Time: 16:34
  */
+
+$policy_id = (int) get_option( 'wp_page_for_privacy_policy' );
+
+if ( $policy_id && get_post_status( $policy_id ) === 'publish' ) {
+    $policy_url = esc_url( get_permalink( $policy_id ) );
+}
 ?>
 
 <form class="uk-form-stacked">
@@ -27,7 +33,7 @@
         </div>
     </div>
     <div class="uk-margin">
-        <label><input class="uk-checkbox" type="checkbox" required> Ich stimme der Verarbeitung meiner Daten lt. Datenschutzerklärung zu.</label>
+        <label><input class="uk-checkbox" type="checkbox" required> Ich stimme der Verarbeitung meiner Daten lt. <?= ($policy_id) ? '<a href="' . $policy_url . '" target="_blank">' : '' ?>Datenschutzerklärung<?= ($policy_id) ? '</a>' : '' ?> zu.</label>
     </div>
     <div class="uk-margin">
         <button class="uk-button uk-button-primary" type="submit">Submit</button>
