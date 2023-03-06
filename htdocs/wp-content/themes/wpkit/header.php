@@ -8,6 +8,12 @@
  *
  * @package wpkit
  */
+
+$show_slider = get_theme_mod('slider_pages');
+if (is_archive()) {
+    global $wp_query;
+    $taxonomy = $wp_query->get_queried_object();
+}
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -75,6 +81,19 @@
         </div>
 	</header><!-- #masthead -->
 
-    <?php if (get_theme_mod('slider_activation')) : ?>
-    <?= apply_filters( 'the_content', get_the_content(null, false, get_theme_mod('slider_select'))); ?>
-    <?php endif; ?>
+    <?php
+        if ( get_theme_mod('slider_activation') &&
+        ($show_slider &&
+            in_array('all', $show_slider) ||
+            (in_array('front_page', $show_slider) && is_front_page()) ||
+            (in_array('home', $show_slider) && is_home()) ||
+            (in_array('page', $show_slider) && is_page()) ||
+            (in_array('single', $show_slider) && is_single()) ||
+            (in_array('archive', $show_slider) && is_archive()) ||
+            (is_single() && in_array('post_type/' . get_post_type() , $show_slider)) ||
+            (is_page() && !is_front_page() && in_array('post_type/page', $show_slider)) ||
+            (is_archive() && is_object($taxonomy) && in_array('taxonomy/' . get_post_type() . '/' . $taxonomy->taxonomy , $show_slider)))
+        ) {
+            echo apply_filters( 'the_content', get_the_content(null, false, get_theme_mod('slider_select')));
+        }
+    ?>
