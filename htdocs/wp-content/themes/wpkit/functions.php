@@ -102,12 +102,12 @@ function wpkit_content_width() {
 }
 add_action( 'after_setup_theme', 'wpkit_content_width', 0 );
 
-add_action( 'customize_register', 'wpkit_customize_controls', 0 );
-
 function wpkit_customize_controls() {
 
     require_once( trailingslashit( get_template_directory() ) . 'inc/control-multiple-checkbox.php' );
 }
+
+add_action( 'customize_register', 'wpkit_customize_controls', 0 );
 
 /**
  * Register widget area.
@@ -220,8 +220,6 @@ function slider_option_enabled(){
     return false;
 }
 
-add_action( 'customize_register', 'uikit_customizer_options' );
-
 function get_pages_for_slider(){
     $slider_locations = array(
         'all' => __('Everywhere', 'wpkit'),
@@ -258,6 +256,8 @@ function sanitize_pages_for_slider( $values ) {
 
     return !empty( $multi_values ) ? array_map( 'sanitize_text_field', $multi_values ) : array();
 }
+
+add_action( 'customize_register', 'uikit_customizer_options' );
 
 function uikit_customizer_options($wp_customize){
 
