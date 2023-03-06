@@ -102,6 +102,13 @@ function wpkit_content_width() {
 }
 add_action( 'after_setup_theme', 'wpkit_content_width', 0 );
 
+add_action( 'customize_register', 'wpkit_customize_controls', 0 );
+
+function wpkit_customize_controls() {
+
+    require_once( trailingslashit( get_template_directory() ) . 'inc/control-multiple-checkbox.php' );
+}
+
 /**
  * Register widget area.
  *
@@ -215,6 +222,43 @@ function slider_option_enabled(){
 
 add_action( 'customize_register', 'uikit_customizer_options' );
 
+function get_pages_for_slider(){
+    $slider_locations = array(
+        'all' => __('Everywhere', 'wpkit'),
+        'front_page' => __('Front Page', 'wpkit'),
+        'home' => __('Main Blog Page', 'wpkit'),
+        'page' => __('Single Pages', 'wpkit'),
+        'single' => __('Single Posts', 'wpkit'),
+        'archive' => __('Archive Pages', 'wpkit')
+    );
+
+    foreach(get_post_types(array('public' => 'true')) as $post_type) {
+
+        if ( $post_type != 'header_slider' ) {
+            $post_type_object = get_post_type_object($post_type);
+            $slider_locations['post_type/' . $post_type] = __('Post Type: ', 'wpkit') . $post_type_object->label;
+
+            foreach (get_object_taxonomies($post_type, 'objects') as $taxonomy) {
+
+                if ($taxonomy->name !== 'post_format' && 'header_slider') {
+
+                    $sidebar_locations['taxonomy/' . $post_type . '/' . $taxonomy->name] = $post_type_object->label . __(' Taxonomy: ', 'wpkit') . $taxonomy->label;
+
+                }
+
+            }
+        }
+    }
+
+    return $slider_locations;
+}
+
+function sanitize_pages_for_slider( $values ) {
+    $multi_values = !is_array( $values ) ? explode( ',', $values ) : $values;
+
+    return !empty( $multi_values ) ? array_map( 'sanitize_text_field', $multi_values ) : array();
+}
+
 function uikit_customizer_options($wp_customize){
 
     $wp_customize->remove_control('blogdescription');
@@ -227,30 +271,31 @@ function uikit_customizer_options($wp_customize){
         $slider_posts_list[$slider_post->ID] = esc_html( get_the_title($slider_post->ID) );
     }
 
-    $wp_customize->add_setting( 'slider_activation', array(
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-
-    $wp_customize->add_control( 'slider_activation_control', array(
-        'type' => 'checkbox',
-        'label' => 'Activate Header-Slider',
-        'priority' => 10,
-        'section' => 'header_image',
-        'settings' => 'slider_activation',
-    ));
-
+    //Header Slider Options
     $wp_customize->add_setting( 'slider_select', array(
         'sanitize_callback' => 'sanitize_text_field',
     ));
 
     $wp_customize->add_control( 'slider_select_control', array(
         'type' => 'select',
-        'label' => 'Choose your Header-Slider',
+        'label' => __('Choose your Header-Slider', 'wpkit'),
         'priority' => 10,
         'section' => 'header_image',
         'settings' => 'slider_select',
         'choices' => $slider_posts_list,
         'active_callback' => 'slider_option_enabled',
+    ));
+
+    $wp_customize->add_setting( 'slider_activation', array(
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+
+    $wp_customize->add_control( 'slider_activation_control', array(
+        'type' => 'checkbox',
+        'label' => __('Activate Header-Slider', 'wpkit'),
+        'priority' => 10,
+        'section' => 'header_image',
+        'settings' => 'slider_activation',
     ));
 
     $wp_customize->add_setting( 'slider_autoplay', array(
@@ -259,7 +304,7 @@ function uikit_customizer_options($wp_customize){
 
     $wp_customize->add_control( 'slider_autoplay_control', array(
         'type' => 'checkbox',
-        'label' => 'Autoplay Header-Slider',
+        'label' => __('Autoplay Header-Slider', 'wpkit'),
         'priority' => 10,
         'section' => 'header_image',
         'settings' => 'slider_autoplay',
@@ -273,7 +318,7 @@ function uikit_customizer_options($wp_customize){
 
     $wp_customize->add_control( 'slider_dotnav_control', array(
         'type' => 'checkbox',
-        'label' => 'Activate Dot-Navigation',
+        'label' => __('Activate Dot-Navigation', 'wpkit'),
         'priority' => 10,
         'section' => 'header_image',
         'settings' => 'slider_dotnav',
@@ -287,7 +332,7 @@ function uikit_customizer_options($wp_customize){
 
     $wp_customize->add_control( 'slider_arrownav_control', array(
         'type' => 'checkbox',
-        'label' => 'Activate Arrow-Navigation',
+        'label' => __('Activate Arrow-Navigation', 'wpkit'),
         'priority' => 10,
         'section' => 'header_image',
         'settings' => 'slider_arrownav',
@@ -295,9 +340,22 @@ function uikit_customizer_options($wp_customize){
         'active_callback' => 'slider_option_enabled',
     ));
 
+    $wp_customize->add_setting('slider_pages', array(
+        'sanitize_callback' => 'sanitize_pages_for_slider'
+    ));
 
+    $wp_customize->add_control(new Customize_Control_Multiple_Checkbox($wp_customize, 'slider_pages',
+        array(
+            'section' => 'header_image',
+            'label'   => __( 'Slider Pages', 'wpkit' ),
+            'description'   => __('Select on which pages the header slider should be displayed.', 'wpkit'),
+            'choices' => get_pages_for_slider(),
+        )
+    ));
+
+    //WPkit Options (Searchform, Sticky Navbar)
     $wp_customize->add_section( 'wpkit_option_section', array(
-        'title'=> __( 'WPkit Options', 'wpkit_option_section' ),
+        'title'=> __('WPkit Options', 'wpkit'),
         'priority' => 160,
         'capability' => 'edit_theme_options'
     ));
@@ -308,7 +366,7 @@ function uikit_customizer_options($wp_customize){
 
     $wp_customize->add_control( 'searchform_nav_control', array(
         'type' => 'checkbox',
-        'label' => 'Show Searchform in Navi',
+        'label' => __('Show Searchform in Navi', 'wpkit'),
         'priority' => 10,
         'section' => 'wpkit_option_section',
         'settings' => 'searchform_nav',
@@ -320,11 +378,12 @@ function uikit_customizer_options($wp_customize){
 
     $wp_customize->add_control( 'sticky_nav_control', array(
         'type' => 'checkbox',
-        'label' => 'Enable Sticky Nav',
+        'label' => __('Enable Sticky Nav', 'wpkit'),
         'priority' => 10,
         'section' => 'wpkit_option_section',
         'settings' => 'sticky_nav',
     ));
+
 }
 
 add_action( 'init', 'wpkit_custom_post' );
@@ -410,7 +469,7 @@ add_filter('the_tags', 'add_class_to_tags', 10, 3);
 function textleader_custom_box() {
     add_meta_box(
         'uk_textleader',
-        'Textvorspann',
+        __('Text Leader', 'wpkit'),
         'post_leader_callback',
         'post'
     );
