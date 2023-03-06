@@ -28,6 +28,13 @@ install () {
     echo_stop;
 }
 
+export () {
+    echo_start;
+    get_config;
+    run_export;
+    echo_stop;
+}
+
 import () {
     echo_start;
     get_config;
@@ -87,6 +94,53 @@ ask_import() {
     esac
 }
 
+run_export() {
+    DUMP_PATH='.setup/'
+    DUMP_FILE='database.sql'
+    DUMP_FILE_ZIP=$DUMP_FILE'.tar.gz'
+
+    echo -e ""
+
+    cd $DUMP_PATH
+
+    echo -e "${GREEN}Dump SQL DB to $DUMP_FILE ${NOCOLOR}"
+    $MYSQLDUMP --defaults-extra-file=../.my.cnf --quick --add-locks --extended-insert $MYSQL_DB -r $DUMP_FILE
+
+    echo -e ""
+        if [ $DOMAIN ]; then
+            echo -e "${CYAN}→ Replacing \"${BOLD}$DOMAIN${NOCOLOR}${CYAN}\" with \"${BOLD}DOMAIN${NOCOLOR}${CYAN}\" \c${NOCOLOR}"
+            sed -i "s|$DOMAIN|PLACEHOLDER_DOMAIN|g" $DUMP_FILE
+            echo -e "${CYAN} √ ${NOCOLOR}"
+        fi
+
+        if [ $MAIL ]; then
+            echo -e "${CYAN}→ Replacing \"${BOLD}$MAIL${NOCOLOR}${CYAN}\" with \"${BOLD}EMAIL${NOCOLOR}${CYAN}\" \c${NOCOLOR}"
+            sed -i "s|$MAIL|PLACEHOLDER_EMAIL|g" $DUMP_FILE
+            echo -e "${CYAN} √ ${NOCOLOR}"
+        fi
+
+        if [ $WPLANG ]; then
+            echo -e "${CYAN}→ Replacing \"${BOLD}$WPLANG${NOCOLOR}${CYAN}\" with \"${BOLD}LANG${NOCOLOR}${CYAN}\" \c${NOCOLOR}"
+            sed -i "s|$WPLANG|PLACEHOLDER_LANG|g" $DUMP_FILE
+            echo -e "${CYAN} √ ${NOCOLOR}"
+        fi
+    echo -e ""
+
+    echo -e "${GREEN}Compressing $DUMP_FILE \c${NOCOLOR}"
+        tar -cvzf "$DUMP_FILE_ZIP" "$DUMP_FILE" &> /dev/null
+    echo -e ".......... ${GREENBG} [DONE] ${NOCOLOR}"
+
+    echo -e "${GREEN}Remove $DUMP_FILE \c${NOCOLOR}"
+        rm -f $DUMP_FILE
+    echo -e "............... ${GREENBG} [DONE] ${NOCOLOR}"
+
+    echo -e "${GREEN}Add $DUMP_FILE_ZIP to git \c${NOCOLOR}"
+        git add $DUMP_FILE_ZIP
+    echo -e ".... ${GREENBG} [DONE] ${NOCOLOR}"
+
+    echo -e ""
+}
+
 run_import() {
     DUMP_FILE='.setup/database.sql'
     DUMP_FILE_ZIP=$DUMP_FILE'.tar.gz'
@@ -98,20 +152,20 @@ run_import() {
 
     echo -e ""
         if [ $DOMAIN ]; then
-            echo -e "${CYAN}→ Replacing \"PLACEHOLDER_DOMAIN\" with \"$DOMAIN\" \c${NOCOLOR}"
-            sed -i "s|PLACEHOLDER_DOMAIN|$DOMAIN|" $DUMP_FILE
+            echo -e "${CYAN}→ Replacing \"${BOLD}DOMAIN${NOCOLOR}${CYAN}\" with \"${BOLD}$DOMAIN${NOCOLOR}${CYAN}\" \c${NOCOLOR}"
+            sed -i "s|PLACEHOLDER_DOMAIN|$DOMAIN|g" $DUMP_FILE
             echo -e "${CYAN} √ ${NOCOLOR}"
         fi
 
         if [ $MAIL ]; then
-            echo -e "${CYAN}→ Replacing \"PLACEHOLDER_EMAIL\" with \"$MAIL\" \c${NOCOLOR}"
-            sed -i "s|PLACEHOLDER_EMAIL|$MAIL|" $DUMP_FILE
+            echo -e "${CYAN}→ Replacing \"${BOLD}EMAIL${NOCOLOR}${CYAN}\" with \"${BOLD}$MAIL${NOCOLOR}${CYAN}\" \c${NOCOLOR}"
+            sed -i "s|PLACEHOLDER_EMAIL|$MAIL|g" $DUMP_FILE
             echo -e "${CYAN} √ ${NOCOLOR}"
         fi
 
         if [ $WPLANG ]; then
-            echo -e "${CYAN}→ Replacing \"PLACEHOLDER_LANG\" with \"$WPLANG\" \c${NOCOLOR}"
-            sed -i "s|PLACEHOLDER_LANG|$WPLANG|" $DUMP_FILE
+            echo -e "${CYAN}→ Replacing \"${BOLD}LANG${NOCOLOR}${CYAN}\" with \"${BOLD}$WPLANG${NOCOLOR}${CYAN}\" \c${NOCOLOR}"
+            sed -i "s|PLACEHOLDER_LANG|$WPLANG|g" $DUMP_FILE
             echo -e "${CYAN} √ ${NOCOLOR}"
         fi
 
@@ -121,11 +175,11 @@ run_import() {
     echo -e "${GREEN}Importing database \c${NOCOLOR}"
         $MYSQL --defaults-extra-file=.my.cnf -Nse 'SHOW TABLES' $MYSQL_DB | while read table; do $MYSQL --defaults-extra-file=.my.cnf -e "SET FOREIGN_KEY_CHECKS=0; TRUNCATE TABLE $table; SET FOREIGN_KEY_CHECKS=1;" $MYSQL_DB; done  &> /dev/null
         $MYSQL --defaults-extra-file=.my.cnf --default-character-set=utf8 $MYSQL_DB < $DUMP_FILE
-    echo -e "${GREENBG} [DONE] ${NOCOLOR}"
+    echo -e "............. ${GREENBG} [DONE] ${NOCOLOR}"
 
     echo -e "${GREEN}Removing extracted SQL dump \c${NOCOLOR}"
         rm -f $DUMP_FILE
-    echo -e "${GREENBG} [DONE] ${NOCOLOR}"
+    echo -e ".... ${GREENBG} [DONE] ${NOCOLOR}"
 
     echo -e ""
 }
@@ -218,6 +272,7 @@ help() {
     echo -e "${MAGENTABG} ${BOLD}Commands: ${NOSTYLE}${NOCOLOR}"
     echo -e "${CYAN}   ${BOLD}${ITALIC}files${NOSTYLE}          ${GREEN}→ creates all the config files you will need${NOCOLOR}"
     echo -e "${CYAN}   ${BOLD}${ITALIC}install${NOSTYLE}        ${GREEN}→ run a npm install in theme directory htdocs/wp-content/themes/wpkit${NOCOLOR}"
+    echo -e "${CYAN}   ${BOLD}${ITALIC}export${NOSTYLE}         ${GREEN}→ run SQL dump export${NOCOLOR}"
     echo -e "${CYAN}   ${BOLD}${ITALIC}import${NOSTYLE}         ${GREEN}→ run SQL dump import with your e-mail and domain from setup-cnf.sh${NOCOLOR}"
     echo -e ""
     echo -e "${CYAN}   ${BOLD}${ITALIC}wpcli-install${NOSTYLE}  ${GREEN}→ install wp-cli to htdocs${NOCOLOR}"
@@ -229,6 +284,7 @@ help() {
 case "$1" in
     files) files; ;;
     install) install; ;;
+    export) export; ;;
     import) import; ;;
     wpcli-install) wpcli_install; ;;
     wpcli-info) wpcli_info; ;;
